@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  tomcat:
+    image: tomcat:10.1-jdk21
+    container_name: my-tomcat
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./target/Servlets-1.0.war:/usr/local/tomcat/webapps/ROOT.war

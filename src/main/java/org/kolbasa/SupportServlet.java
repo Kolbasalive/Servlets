@@ -1,3 +1,4 @@
+/*
 package org.kolbasa;
 
 import jakarta.servlet.ServletException;
@@ -9,18 +10,18 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class SupportServlet extends HttpServlet {
-    private SupportService supportService;
+    private SupportServiceImpl supportServiceImpl;
 
-    public void setSupportService(SupportService supportService) {
-        this.supportService = supportService;
+    public void setSupportService(SupportServiceImpl supportServiceImpl) {
+        this.supportServiceImpl = supportServiceImpl;
     }
 
     @Override
     public void init() throws ServletException {
-        if (supportService == null) {
+        if (supportServiceImpl == null) {
             SupportRepository repository = new SupportRepository();
             super.init();
-            this.supportService = new SupportService(repository);
+            this.supportServiceImpl = new SupportServiceImpl(repository);
         }
     }
 
@@ -29,7 +30,7 @@ public class SupportServlet extends HttpServlet {
                          HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/plain");
         PrintWriter out = resp.getWriter();
-        out.println(supportService.getSupportPhrases());
+        out.println(supportServiceImpl.getSupportPhrase());
     }
 
     @Override
@@ -37,6 +38,6 @@ public class SupportServlet extends HttpServlet {
                           HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/plain");
         var phrase = req.getParameter("name");
-        supportService.setSupportPhrases(phrase);
+        supportServiceImpl.setSupportPhrase(phrase);
     }
-}
+}*/

@@ -6,13 +6,14 @@
          version="5.0">
 
     <servlet>
-        <servlet-name>SupportServlet</servlet-name>
-        <servlet-class>org.kolbasa.SupportServlet</servlet-class>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.kolbasa.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>SupportServlet</servlet-name>
-        <url-pattern>/support</url-pattern>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
 
 </web-app>
